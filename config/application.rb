@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+require_relative 'boot'
+
+require 'rails/all'
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
+
+module Fairpair
+  class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 7.0
+    config.autoload_paths += %W[#{config.root}/lib]
+    config.secret_key_base = "c77a076a8f1c0ce5618a27f5bc0a2f6fc69ab80d4339f769555841bb31f6cd2904a2f063c4e572214a64368c34f55f58a1fabbbb007771ac397f8efa368891a3"
+
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
+  end
+end
